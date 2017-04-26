@@ -14,26 +14,28 @@ Installation on macOS: (1) `brew install bash`. (2) In Terminal → Preferences 
 
 Example:
 
-    #!/usr/bin/env bash
-    
-    value_options=("--file" "-c" "--format")
-    one_letter_count_options=("a" "v")
-    multi_letter_count_options=("archive" "verbose")
-    
-    declare -A option_values
-    declare -A option_counts
-    non_option_arguments=()
-    
-    . ./obtain_options.bash
-    obtain_options "$@"
-    if [[ $? > 0 ]]; then
-        echo "Usage: ..."
-        exit 1
-    fi
-    
-    declare -p option_values
-    declare -p option_counts
-    declare -p non_option_arguments
+```bash
+#!/usr/bin/env bash
+
+value_options=("--file" "-c" "--format")
+one_letter_count_options=("a" "v")
+multi_letter_count_options=("archive" "verbose")
+
+declare -A option_values
+declare -A option_counts
+non_option_arguments=()
+
+. ./obtain_options.bash
+obtain_options "$@"
+if [[ $? > 0 ]]; then
+    echo "Usage: ..."
+    exit 1
+fi
+```
+
+declare -p option_values
+declare -p option_counts
+declare -p non_option_arguments
 
 Running this script with the arguments
 
