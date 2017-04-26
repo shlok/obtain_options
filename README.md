@@ -20,8 +20,8 @@ Example:
     one_letter_count_options=("a" "v")
     multi_letter_count_options=("archive" "verbose")
     
-    declare -A values
-    declare -A counts
+    declare -A option_values
+    declare -A option_counts
     non_option_arguments=()
     
     . ./obtain_options.bash
@@ -31,8 +31,8 @@ Example:
         exit 1
     fi
     
-    declare -p values
-    declare -p counts
+    declare -p option_values
+    declare -p option_counts
     declare -p non_option_arguments
 
 Running this script with the arguments
@@ -41,6 +41,6 @@ Running this script with the arguments
 
 gives us this result:
 
-    declare -A values=([-c]="5" [--file]="foo.txt" [--format]="a b c" )
-    declare -A counts=([archive]="1" [verbose]="1" [a]="1" [v]="2" )
+    declare -A option_values=([-c]="5" [--file]="foo.txt" [--format]="a b c" )
+    declare -A option_counts=([archive]="1" [verbose]="1" [a]="1" [v]="2" )
     declare -a non_option_arguments=([0]="other" [1]="args")

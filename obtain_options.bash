@@ -33,7 +33,7 @@ obtain_options() {
             return 1
         else
             # $snd is a valid value.
-            values[$fst]=$snd
+            option_values[$fst]=$snd
             obtain_options "${args[@]:2}"
             return $?
         fi
@@ -49,7 +49,7 @@ obtain_options() {
         
         if __element_in $option "${value_options[@]}"; then
             # $option, e.g., "--file" or "-c", is in value_options.
-            if [[ -n $value ]]; then values[$option]=$value; fi
+            if [[ -n $value ]]; then option_values[$option]=$value; fi
             obtain_options "${args[@]:1}"
             return $?
         else
@@ -62,7 +62,7 @@ obtain_options() {
         local option=${BASH_REMATCH[1]}
         
         if __element_in $option "${multi_letter_count_options[@]}"; then
-            (( counts[$option]+=1 ))
+            (( option_counts[$option]+=1 ))
             obtain_options "${args[@]:1}"
             return $?
         else
@@ -77,7 +77,7 @@ obtain_options() {
         for (( i=1; i<${#fst}; i++ )); do
             local letter="${fst:$i:1}"            
             if __element_in $letter "${one_letter_count_options[@]}"; then
-                (( counts[$letter]+=1 ))
+                (( option_counts[$letter]+=1 ))
             else
                 return 1
             fi
