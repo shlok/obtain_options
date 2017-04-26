@@ -10,9 +10,9 @@ Bash 4 or later.
 
 Installation on macOS: (1) `brew install bash`. (2) In Terminal → Preferences → General, change shell path to `/usr/local/bin/bash`. (3) In Terminal → Preferences → Profiles → Shell, add `-bash` to the table view. (4) Confirm that `/usr/local/bin` appears before `/bin` in `$PATH`.
 
-## Usage
+## Usage example
 
-Example:
+Running the script
 
 ```bash
 #!/usr/bin/env bash
@@ -37,11 +37,11 @@ declare -p option_values
 declare -p option_counts
 declare -p non_option_arguments
 
-Running this script with the arguments
+with the arguments
 
     --file foo.txt -c=5 --format="a b c" -avv --archive --verbose -- other args
 
-gives us this result:
+produces this result:
 
     declare -A option_values=([-c]="5" [--file]="foo.txt" [--format]="a b c" )
     declare -A option_counts=([archive]="1" [verbose]="1" [a]="1" [v]="2" )
