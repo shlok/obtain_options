@@ -31,11 +31,11 @@ if [[ $? > 0 ]]; then
     echo "Usage: ..."
     exit 1
 fi
-```
 
 declare -p option_values
 declare -p option_counts
 declare -p non_option_arguments
+```
 
 with the arguments
 
