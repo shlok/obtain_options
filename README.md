@@ -2,7 +2,7 @@
 
 Created by [shlok](https://github.com/shlok) for use in personal projects. Use at your own risk.
 
-``obtain_options`` is a Bash function for obtaining command-line options.
+``obtain_options`` is a Bash function for obtaining options from the command-line arguments passed to a script. The options end up in associative arrays; the non-option arguments end up in an ordinary array.
 
 ## Requirements
 
